@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "author": "Jean Armont",
+    "content": "L'économie doit être notre priorité.",
+    "date": "2025-04-10T14:32:00Z",
+    "theme": "économie"
+  },
+  {
+    "id": 2,
+    "author": "Marie Delacroix",
+    "content": "Nous devons investir plus dans la santé.",
+    "date": "2025-04-09T10:15:00Z",
+    "theme": "santé"
+  }
+]
