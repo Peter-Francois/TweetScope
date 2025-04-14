@@ -1,9 +1,28 @@
 <script lang="ts">
+    import TweetFilters from '$lib/components/TweetFilters.svelte';
     export let data;
     const tweets = data.tweets || [];
+    let search = "";
+  let sortAsc = false;
+
+
+  function handleSearchChange(e) {
+    search = e.target.value;
+  }
+
+  function toggleSort() {
+    sortAsc = !sortAsc;
+  }
   </script>
   
   <main>
+    <TweetFilters
+  {search}
+  {sortAsc}
+  onSearchChange={handleSearchChange}
+  onSortToggle={toggleSort}
+/>
+
     <h1>Derniers Tweets</h1>
     {#if tweets.length > 0}
       <ul>
