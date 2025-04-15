@@ -1,18 +1,30 @@
 <script lang="ts">
     import TweetFilters from '$lib/components/TweetFilters.svelte';
-    export let data;
-    const tweets = data.tweets || [];
+    import TweetList from '$lib/components/TweetList.svelte';
+    import type { Tweet } from '$lib/types/tweet.js';
+    import type { PageData } from './$types';
+
+    export let data: PageData;
     let search = "";
-  let sortAsc = false;
+    let sortAsc = false;
+    $: filteredTweets = (data.tweets as Tweet[])
+    .filter((t: Tweet) =>
+      t.content.toLowerCase().includes(search.toLowerCase()) ||
+      t.author.toLowerCase().includes(search.toLowerCase())
+    )
+    .sort((a: Tweet, b: Tweet) => {
+      return sortAsc
+        ? new Date(a.date).getTime() - new Date(b.date).getTime()
+        : new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
 
+    function handleSearchChange(e) {
+      search = e.target.value;
+    }
 
-  function handleSearchChange(e) {
-    search = e.target.value;
-  }
-
-  function toggleSort() {
-    sortAsc = !sortAsc;
-  }
+    function toggleSort() {
+      sortAsc = !sortAsc;
+    }
   </script>
   
   <main>
@@ -24,19 +36,8 @@
 />
 
     <h1>Derniers Tweets</h1>
-    {#if tweets.length > 0}
-      <ul>
-        {#each tweets as tweet}
-          <li>
-            <strong>{tweet.author}</strong> ({tweet.date}) <br />
-            <em>{tweet.theme}</em> <br />
-            <p>{tweet.content}</p>
-          </li>
-        {/each}
-      </ul>
-    {:else}
-      <p>Aucun tweet disponible pour le moment</p>
-    {/if}
+    <TweetList tweets={filteredTweets} />
+    
   </main>
   
   <style>
