@@ -1,7 +1,6 @@
-<script lang="ts">
-	import '../app.css';
-
-	let { children } = $props();
+<script>
+	import 'bootstrap/dist/css/bootstrap.min.css';
 </script>
 
-{@render children()}
+  <!-- Slot définit où le contenu enfant doit être inséré-->
+<slot />
