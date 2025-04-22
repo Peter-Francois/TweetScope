@@ -28,6 +28,7 @@
   </script>
   
   <main>
+    <h1 class="text-center m-3 p-2 rounded text-white bg-primary">TweetScope</h1>
     <TweetFilters
   {search}
   {sortAsc}
@@ -35,38 +36,8 @@
   onSortToggle={toggleSort}
 />
 
-    <h1>Derniers Tweets</h1>
-    <TweetList tweets={filteredTweets} />
+    <h2 class="m-3 text-primary">Derniers Tweets</h2>
+    <TweetList  tweets={filteredTweets} />
     
   </main>
   
-  <style>
-    main {
-      padding: 1rem;
-    }
-  
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-  
-    li {
-      border-bottom: 1px solid #ccc;
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-    }
-  
-    h1 {
-      color: black; 
-    }
-  
-    p {
-      font-size: 1rem;
-      color: #555;
-    }
-  
-    em {
-      font-size: 0.9rem;
-      color: #888;
-    }
-  </style>

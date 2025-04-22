@@ -5,15 +5,17 @@
   export let onSortToggle;
 </script>
 
-<div class="controls">
+<form class="container ">
+  <div class="row m-1">
   <input
     type="text"
     placeholder="🔍 Rechercher..."
     bind:value={search}
     on:input={onSearchChange}
-    class="input"
+    class="form-control col m-1"
   />
-  <button on:click={onSortToggle}>
+  <button on:click={onSortToggle} class="btn btn-primary col-4 m-1">
     Trier par date {sortAsc ? "↑" : "↓"}
   </button>
 </div>
+</form>

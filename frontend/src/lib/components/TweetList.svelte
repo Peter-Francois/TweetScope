@@ -5,10 +5,15 @@
     {#if tweets.length > 0}
       <ul class="tweets">
         {#each tweets as tweet}
-          <li>
-            <strong>{tweet.author}</strong> ({tweet.date}) <br />
-            <em>{tweet.theme}</em> <br />
-            <p>{tweet.content}</p>
+          <li class="card border-primary m-3">
+            <h3 class="card-header">{tweet.author}</h3>
+            <div class="card-body">
+            <em class="badge bg-primary">{tweet.theme}</em>
+            <p class="card-text">{tweet.content}</p>
+          </div>
+            <p class  ="card-footer mb-0">
+              {tweet.date}
+            </p>
           </li>
         {/each}
       </ul>
