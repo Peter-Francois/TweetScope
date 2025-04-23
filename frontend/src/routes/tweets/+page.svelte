@@ -18,8 +18,8 @@
         : new Date(b.date).getTime() - new Date(a.date).getTime();
     });
 
-    function handleSearchChange(e) {
-      search = e.target.value;
+    function handleSearchChange(e: Event) {
+      search = (e.target as HTMLInputElement).value;
     }
 
     function toggleSort() {
@@ -36,7 +36,7 @@
   onSortToggle={toggleSort}
 />
 
-    <h2 class="m-3 text-primary">Derniers Tweets</h2>
+    <h2 class="mx-5 my-3 text-primary">Derniers Tweets 🔥</h2>
     <TweetList  tweets={filteredTweets} />
     
   </main>
