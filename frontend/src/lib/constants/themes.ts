@@ -1,0 +1,1 @@
+export const themes = ["Économie", "Santé", "Éducation", "Politique", "Sport", "Technologie", "Culte", "Autre"];
