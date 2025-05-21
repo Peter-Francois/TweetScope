@@ -4,4 +4,5 @@ export interface Tweet {
     content: string;
     date: Date;
     theme: string;
+    url: string;
   }
